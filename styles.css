@@ -218,20 +218,77 @@ h1 {
 }
 
 .summary-grid,
-.idea-grid {
+.idea-grid,
+.checklist-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
 .summary-card,
-.idea-card {
+.idea-card,
+.guide-panel,
+.checklist-group,
+.template-panel {
   min-height: 13rem;
   border: 1px solid rgba(17, 24, 39, 0.08);
   border-radius: 1.4rem;
   padding: 1.35rem;
   background: var(--glass-strong);
   box-shadow: 0 14px 44px rgba(21, 31, 48, 0.08);
+}
+
+.guide-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  gap: 1.5rem;
+  align-items: start;
+  min-height: auto;
+}
+
+.guide-panel h3,
+.checklist-group h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1.2rem;
+  line-height: 1.28;
+}
+
+.guide-panel p,
+.template-panel p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.best-for {
+  border-radius: 1rem;
+  padding: 1rem;
+  background: rgba(10, 132, 255, 0.08);
+}
+
+.mini-label {
+  margin-bottom: 0.75rem !important;
+  color: #075db5 !important;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.best-for ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.best-for li {
+  border: 1px solid rgba(10, 132, 255, 0.16);
+  border-radius: 999px;
+  padding: 0.45rem 0.7rem;
+  background: rgba(255, 255, 255, 0.64);
+  color: #1f2937;
+  font-weight: 700;
 }
 
 .summary-card.strong {
@@ -317,9 +374,19 @@ h1 {
   padding-bottom: 6rem;
 }
 
-.action-list {
+.checklist-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.checklist-group {
   display: grid;
   gap: 0.75rem;
+  align-content: start;
+  min-height: auto;
+}
+
+.checklist-group h3 {
+  color: #111827;
 }
 
 .action-item {
@@ -345,6 +412,31 @@ h1 {
 .action-item:has(input:checked) span {
   color: var(--muted);
   text-decoration: line-through;
+}
+
+.template-section {
+  padding-top: 0;
+  padding-bottom: 6rem;
+}
+
+.template-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+  gap: 1.5rem;
+  align-items: center;
+  min-height: auto;
+}
+
+.template-panel pre {
+  overflow-x: auto;
+  margin: 0;
+  border-radius: 1rem;
+  padding: 1rem;
+  background: #111827;
+  color: #eef6ff;
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.92rem;
+  line-height: 1.6;
 }
 
 .footer {
@@ -397,7 +489,10 @@ h1 {
   }
 
   .summary-grid,
-  .idea-grid {
+  .idea-grid,
+  .checklist-grid,
+  .guide-panel,
+  .template-panel {
     grid-template-columns: 1fr;
   }
 }

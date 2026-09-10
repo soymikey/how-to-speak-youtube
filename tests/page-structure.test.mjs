@@ -8,10 +8,12 @@ assert.match(html, /How to Speak/);
 assert.match(html, /Unzc731iCUY/);
 
 for (const section of [
+  "How to Use This Guide",
   "Concise Summary",
   "Timeline",
   "Key Ideas",
-  "Actionable Takeaways",
+  "Speaking Preparation Checklist",
+  "Copyable Talk Template",
 ]) {
   assert.match(html, new RegExp(section));
 }
@@ -22,4 +24,16 @@ const timestampLinks = html.match(/youtube\.com\/watch\?v=Unzc731iCUY&amp;t=\d+s
 assert.ok(timestampLinks.length >= 10, "expected at least 10 timestamp links");
 
 const actionItems = html.match(/class="action-item"/g) ?? [];
-assert.ok(actionItems.length >= 6, "expected actionable takeaways");
+assert.ok(actionItems.length >= 10, "expected a fuller speaking checklist");
+
+for (const phrase of [
+  "Best for",
+  "Before the talk",
+  "Opening",
+  "During the talk",
+  "Slides",
+  "Ending",
+  "My talk promise",
+]) {
+  assert.match(html, new RegExp(phrase));
+}
