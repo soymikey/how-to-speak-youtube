@@ -10,6 +10,8 @@ assert.match(html, /How to Speak/);
 assert.match(html, /Unzc731iCUY/);
 assert.match(html, /<link rel="icon" type="image\/png" href="assets\/icon\.png" \/>/);
 assert.match(html, /<link rel="apple-touch-icon" href="assets\/icon\.png" \/>/);
+assert.match(html, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-3534156575856999/);
+assert.match(html, /crossorigin="anonymous"/);
 assert.ok(existsSync(iconUrl), "expected generated icon asset");
 
 for (const section of [
