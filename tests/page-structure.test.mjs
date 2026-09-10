@@ -1,11 +1,16 @@
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
 import { readFileSync } from "node:fs";
 
 const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
+const iconUrl = new URL("../assets/icon.png", import.meta.url);
 
 assert.match(html, /<html lang="en">/);
 assert.match(html, /How to Speak/);
 assert.match(html, /Unzc731iCUY/);
+assert.match(html, /<link rel="icon" type="image\/png" href="assets\/icon\.png" \/>/);
+assert.match(html, /<link rel="apple-touch-icon" href="assets\/icon\.png" \/>/);
+assert.ok(existsSync(iconUrl), "expected generated icon asset");
 
 for (const section of [
   "How to Use This Guide",
