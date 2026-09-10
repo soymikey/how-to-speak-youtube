@@ -12,6 +12,11 @@ assert.match(html, /<link rel="icon" type="image\/png" href="assets\/icon\.png" 
 assert.match(html, /<link rel="apple-touch-icon" href="assets\/icon\.png" \/>/);
 assert.match(html, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-3534156575856999/);
 assert.match(html, /crossorigin="anonymous"/);
+assert.match(html, /https:\/\/www\.gstatic\.com\/firebasejs\/12\.18\.0\/firebase-app\.js/);
+assert.match(html, /https:\/\/www\.gstatic\.com\/firebasejs\/12\.18\.0\/firebase-analytics\.js/);
+assert.match(html, /projectId: "how-to-speak-a463e"/);
+assert.match(html, /measurementId: "G-8R83B2G04Q"/);
+assert.match(html, /getAnalytics\(app\)/);
 assert.ok(existsSync(iconUrl), "expected generated icon asset");
 
 for (const section of [
